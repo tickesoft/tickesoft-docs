@@ -1,0 +1,55 @@
+# Modal
+
+import { Tabs } from 'nextra/components';
+
+```js filename="Import" copy
+import { Modal } from '@features/ui';
+```
+
+## Props
+
+| Prop                |                 Tipo                 | requerido? | Default | Descripción                                                                      |
+| :------------------ | :----------------------------------: | :--------: | :-----: | -------------------------------------------------------------------------------- |
+| title               |                string                |     si     |         | Título del modal.                                                                |
+| footer              |             JSX.Element              |     no     |  null   | Recibe como parámetro un componente a renderear como footer.                     |
+| size                | xs , sm , md , xl , lg , full-screen |     no     |   md    | Tamaño del modal.                                                                |
+| closeOnClickOutside |               boolean                |     no     |  true   | Determina si el modal debe cerrarse cuando el usuario hace clic fuera del modal. |
+| onClose             |      (): void \| boolean => {}       |     no     |  null   | Se llama cuando el modal se cierra desde adentro.                                |
+
+## Uso
+
+{/* prettier-ignore */}
+```js copy
+import { useState } from 'react';
+import { Modal } from '@features/ui';
+
+export function Test(): JSX.Element {
+    const [showModal, setShowModal] = useState<boolean>(false);
+
+    return (
+        <>
+            <button onClick={setShowModal(showModal => !showModal)}>Mostrar modal</button>
+            {showModal && <Modal title="título del modal" onClose={() => setShowModal(false)}>Contenido del modal.</Modal>}
+        <>
+    );
+}
+```
+
+## Uso en conjunto con useGlobalModals
+
+`useGlobalModals` permite agregar modales al contexto `GlobalModalsContext`,
+
+```js copy
+import { Modal } from '@features/ui';
+import { useGlobalModals } from '@resources/contexts';
+
+export function Test(): JSX.Element {
+    const { showModal } = useGlobalModals();
+
+    function handleShowModal() {
+        showModal(<Modal title="título del modal">Contenido del modal.</Modal>);
+    }
+
+    return <button onClick={handleShowModal}>mostrar Modal</button>;
+}
+```

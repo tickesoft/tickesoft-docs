@@ -2,17 +2,31 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  logo: <span>Tickesoft Docs</span>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/tickesoft/tickesoft-docs',
   },
-  chat: {
-    link: 'https://discord.com',
-  },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://github.com/tickesoft/tickesoft-docs/blob/main',
   footer: {
-    text: 'Nextra Docs Template',
+    text: <>With Love Tickesoft Team</>,
   },
+  useNextSeoProps() {
+    return {
+      titleTemplate: '%s – Tickesoft Docs'
+    }
+  },
+  search: {
+    placeholder: 'Buscar...'
+  },
+  editLink: {
+    text: 'Editar en github'
+  },
+  toc: {
+    title: 'Indice'
+  },
+  feedback: {
+    content: null
+  }
 }
 
 export default config

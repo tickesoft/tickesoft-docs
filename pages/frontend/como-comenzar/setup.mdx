@@ -1,0 +1,32 @@
+# Setup
+
+import { Tabs } from 'nextra/components';
+
+## Introducción
+
+Este proyecto esta desarrollado 100% en React, para poder funcionar necesita tener activo un API de pruebas.
+
+<b>Ojo! no se recomienda trabajar sobre producción.</b>
+
+## Instalación
+
+```sh npm2yarn
+npm i
+```
+
+## Configurar proyecto
+
+Este proyecto utiliza variables de entorno que se definen en archivos .env, de no tenerlo es necesario que crees el siguiente archivo:
+
+Nota: cambia el valor de VITE_APP_API_URL, por la url del tu API de desarrollo.
+
+```text filename=".env.local" copy
+VITE_APP_TITLE='Tickesoft'
+VITE_APP_API_URL='http://tickesoft-api.test/api/v1'
+```
+
+## Arrancar proyecto
+
+```sh npm2yarn
+npm run dev
+```
